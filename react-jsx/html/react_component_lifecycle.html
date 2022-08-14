@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>react_component_state</title>
+</head>
+
+<body>
+  <!-- 准备一个容器 -->
+  <div id="test"></div>
+
+  <!-- 引入库：核心库，扩展库 操作DOM，转换 JSX=>JS -->
+  <script type="text/javascript" src="../js/16.8.4/react.development.js"></script>
+  <script type="text/javascript" src="../js/16.8.4/react-dom.development.js"></script>
+  <script type="text/javascript" src="../js/16.8.4/babel.min.js"></script>
+
+  <script type="text/babel">
+    // 创建组件
+    class Life extends React.Component {
+
+      state = { opacity: 1 }
+
+      death = () => {
+        // 卸载组件
+        ReactDOM.unmountComponentAtNode(document.getElementById("test"))
+      }
+
+      // 组件挂载完毕
+      componentDidMount() {
+        console.log("Life -- componentWillUnmount")
+        this.timer = window.setInterval(() => {
+          let { opacity } = this.state
+          opacity -= 0.1
+          if (opacity <= 0) opacity = 1
+          this.setState({ opacity })
+        }, 200)
+      }
+
+      // 组件将要卸载
+      componentWillUnmount() {
+        console.log("Life -- componentWillUnmount")
+        // 清除定时器
+        window.clearInterval(this.timer)
+      }
+
+      render() {
+        console.log("Life -- render")
+        return (
+          <div>
+            <h2 style={{ opacity: this.state.opacity }}>世界末日怎么办？</h2>
+            <button onClick={this.death}>不活了</button>
+          </div>
+        )
+      }
+    }
+
+    // 渲染组件到页面
+    ReactDOM.render(<Life />, document.getElementById("test"))
+  </script>
+</body>
+
+</html>

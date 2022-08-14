@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>react_form_onChange</title>
+</head>
+
+<body>
+  <!-- 准备一个容器 -->
+  <div id="test"></div>
+
+  <!-- 引入库：核心库，扩展库 操作DOM，转换 JSX=>JS -->
+  <script type="text/javascript" src="../js/16.8.4/react.development.js"></script>
+  <script type="text/javascript" src="../js/16.8.4/react-dom.development.js"></script>
+  <script type="text/javascript" src="../js/16.8.4/babel.min.js"></script>
+
+  <script type="text/babel">
+    // 创建组件
+    class Login extends React.Component {
+      // 初始化状态
+      state = { username: "", password: "" }
+
+      saveFormData = (event, dataType) => {
+        this.setState({ [dataType]: event.target.value })
+      }
+
+      handleSubmit = (event) => {
+        event.preventDefault()  // 阻止表单提交
+        const { username, password } = this.state
+        window.alert(`username = ${username}, password = ${password}`)
+      }
+
+      render() {
+        const { isHot, wind } = this.state
+        return (
+          <form onSubmit={this.handleSubmit}>
+            用户名：<input onChange={event => this.saveFormData(event, "username")} type="text" name="username" />
+            密码：<input onChange={event => this.saveFormData(event, "password")} type="text" name="password" />
+            <button>登录</button>
+          </form>
+        )
+      }
+    }
+
+    // 渲染组件到页面
+    ReactDOM.render(<Login />, document.getElementById("test"))
+  </script>
+</body>
+
+</html>

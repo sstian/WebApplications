@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>react_component_state</title>
+</head>
+
+<body>
+  <!-- 准备一个容器 -->
+  <div id="test"></div>
+
+  <!-- 引入库：核心库，扩展库 操作DOM，转换 JSX=>JS -->
+  <script type="text/javascript" src="../js/16.8.4/react.development.js"></script>
+  <script type="text/javascript" src="../js/16.8.4/react-dom.development.js"></script>
+  <script type="text/javascript" src="../js/16.8.4/babel.min.js"></script>
+
+  <script type="text/babel">
+    // 创建组件
+    class Demo extends React.Component {
+
+      showData = () => {
+        const { input1 } = this
+        window.alert(input1.value)
+      }
+
+      // showData2 = () => {
+      //   const { input2 } = this
+      //   window.alert(input2.value)
+      // }
+
+      // saveInput2 = (c) => {
+      //   this.input2 = c
+      // }
+
+      showData3 = (event) => {
+        window.alert(event.target.value)
+      }
+
+      render() {
+        return (
+          <div>
+            <input ref={c => this.input1 = c} type="text" placeholder="点击按钮提示数据" />&nbsp;
+            <button onClick={this.showData}>点我提示左边数据</button>&nbsp;
+            {/*<input ref={this.saveInput2} onBlur={this.showData2} type="text" placeholder="失去焦点提示数据" />*/}
+            <input onBlur={this.showData3} type="text" placeholder="失去焦点提示数据" />
+          </div>
+        )
+      }
+    }
+
+    // 渲染组件到页面
+    ReactDOM.render(<Demo />, document.getElementById("test"))
+  </script>
+</body>
+
+</html>

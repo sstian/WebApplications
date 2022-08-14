@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>react_component_lifecycle_getSnapshotBeforeUpdate</title>
+  <style>
+    .list {
+      width: 200px;
+      height: 150px;
+      background-color: skyblue;
+      overflow: auto;
+    }
+
+    .news {
+      height: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 准备一个容器 -->
+  <div id="test"></div>
+
+  <!-- 引入库：核心库，扩展库 操作DOM，转换 JSX=>JS -->
+  <script type="text/javascript" src="../js/16.8.4/react.development.js"></script>
+  <script type="text/javascript" src="../js/16.8.4/react-dom.development.js"></script>
+  <script type="text/javascript" src="../js/16.8.4/babel.min.js"></script>
+
+  <script type="text/babel">
+    // 创建组件
+    class NewsList extends React.Component {
+
+      state = { newsArr: [] }
+
+      // 组件挂载完毕
+      componentDidMount() {
+        console.log("NewsList -- componentDidMount")
+        this.timer = window.setInterval(() => {
+          // 获取原状态
+          let { newsArr } = this.state
+          // 模拟一条新闻
+          const news = "新闻" + (newsArr.length + 1)
+          // 更新状态
+          this.setState({ newsArr: [news, ...newsArr] })
+        }, 1000)
+      }
+
+      getSnapshotBeforeUpdate() {
+        console.log("NewsList -- getSnapshotBeforeUpdate")
+        return this.refs.list.scrollHeight
+      }
+
+      componentDidUpdate(preProps, preState, preHeight) {
+        console.log("NewsList -- componentDidUpdate")
+        this.refs.list.scrollTop += this.refs.list.scrollHeight - preHeight
+      }
+
+      // 组件将要卸载
+      componentWillUnmount() {
+        console.log("NewsList -- componentWillUnmount")
+        // 清除定时器
+        window.clearInterval(this.timer)
+      }
+
+      render() {
+        console.log("NewsList -- render")
+        return (
+          <div className="list" ref="list">
+            {this.state.newsArr.map((news, index) => {
+              return <div key={index} className="news">{news}</div>
+            })}
+          </div>
+        )
+      }
+    }
+
+    // 渲染组件到页面
+    ReactDOM.render(<NewsList />, document.getElementById("test"))
+  </script>
+</body>
+
+</html>

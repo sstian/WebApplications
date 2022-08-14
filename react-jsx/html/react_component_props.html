@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>react_component_props</title>
+</head>
+
+<body>
+  <!-- 准备一个容器 -->
+  <div id="test"></div>
+
+  <!-- 引入库：核心库，扩展库 操作DOM，转换 JSX=>JS，限制组件标签 -->
+  <script type="text/javascript" src="../js/16.8.4/react.development.js"></script>
+  <script type="text/javascript" src="../js/16.8.4/react-dom.development.js"></script>
+  <script type="text/javascript" src="../js/16.8.4/babel.min.js"></script>
+  <script type="text/javascript" src="../js/16.8.4/prop-types.js"></script>
+
+  <script type="text/babel">
+    // 创建组件
+    class Person extends React.Component {
+
+      // 限制标签属性
+      static propTypes = {
+        name: PropTypes.string.isRequired,
+        sex: PropTypes.string,
+        age: PropTypes.number,
+        speek: PropTypes.func
+      }
+
+      // 标签默认属性
+      static defaultProps = {
+        sex: "男",
+        age: 18
+      }
+
+      render() {
+        const { name, sex, age } = this.props
+        return (
+          <ul>
+            <li>姓名：{name}</li>
+            <li>性别：{sex}</li>
+            <li>年龄：{age + 1}</li>
+          </ul>
+        )
+      }
+    }
+
+    // 渲染组件到页面
+    ReactDOM.render(<Person name="Jerry" />, document.getElementById("test"))
+  </script>
+</body>
+
+</html>

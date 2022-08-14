@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>react_virtual_dom</title>
+</head>
+
+<body>
+  <!-- 准备一个容器 -->
+  <div id="test"></div>
+
+  <!-- 引入库：核心库，扩展库 操作DOM，转换 JSX=>JS -->
+  <script type="text/javascript" src="../js/16.8.4/react.development.js"></script>
+  <script type="text/javascript" src="../js/16.8.4/react-dom.development.js"></script>
+  <script type="text/javascript" src="../js/16.8.4/babel.min.js"></script>
+
+  <script type="text/babel">
+    // 模拟数据
+    const data = ['Angular', 'React', 'Vue']
+    // 创建虚拟DOM
+    const VDOM = (
+      <div>
+        <h1>前端js框架列表</h1>
+        <ul>{data.map((item, index) => <li key={index}>{item}</li>)}</ul>
+      </div>
+    )
+    // 渲染虚拟DOM到页面
+    ReactDOM.render(VDOM, document.getElementById("test"))
+  </script>
+</body>
+
+</html>

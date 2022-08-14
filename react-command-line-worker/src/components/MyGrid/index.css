@@ -1,0 +1,9 @@
+.full-screen {
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 600px;
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+}

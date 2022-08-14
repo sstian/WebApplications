@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>react_component_state</title>
+</head>
+
+<body>
+  <!-- 准备一个容器 -->
+  <div id="test"></div>
+
+  <!-- 引入库：核心库，扩展库 操作DOM，转换 JSX=>JS -->
+  <script type="text/javascript" src="../js/16.8.4/react.development.js"></script>
+  <script type="text/javascript" src="../js/16.8.4/react-dom.development.js"></script>
+  <script type="text/javascript" src="../js/16.8.4/babel.min.js"></script>
+
+  <script type="text/babel">
+    // 创建组件
+    class Weather extends React.Component {
+      // 初始化状态
+      state = { isHot: false, wind: "微风" }
+
+      render() {
+        const { isHot, wind } = this.state
+        return (<h1 onClick={this.changeWeather}>今天天气很{isHot ? "炎热" : "凉爽"}，{wind}</h1>)
+      }
+
+      // 自定义方法：赋值语句 + 箭头函数
+      changeWeather = () => {
+        const { isHot } = this.state
+        this.setState({ isHot: !isHot })
+      }
+    }
+
+    // 渲染组件到页面
+    ReactDOM.render(<Weather />, document.getElementById("test"))
+  </script>
+</body>
+
+</html>
