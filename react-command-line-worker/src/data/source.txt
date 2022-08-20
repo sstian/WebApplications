@@ -1,0 +1,2 @@
+ValuationService.exe -dbUser eqjobs -dbServer eqtgdbdev01_ds_157 -outputPath D:\eqtg\log -useArea51 -securityQuery select * from HIST...priceHistory
+-memory -200

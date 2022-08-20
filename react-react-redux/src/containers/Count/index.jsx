@@ -56,6 +56,8 @@ class Count extends Component {
 // 在UI组件中，通过 this.props.xxx 访问
 export default connect(
   // mapStateToProps - 获取状态
+  // 写了回调，则当对应的状态被更新，该组件也会被更新，即 render(), componentDidUpdate()
+  // 若为null, 表示不需要获取状态，则该组件不会被更新
   state => ({
     count: state.count,
     personCount: state.persons.length

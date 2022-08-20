@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# react-command-line-worker
+
+It's to parse and generate command line, powered by React, React Redux, AG Grid, Ant Design.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -85,9 +87,23 @@ npm install --save ag-grid-react
 
 # install node-sass: scss/sass -> css
 npm install node-sass
+
+# install ant-design
+# https://ant.design/index-cn
+npm install antd --save
+
+# install react-redux
+# to fix error: Module not found: Error: Can't resolve 'redux'
+npm install redux react-redux
+
+<!-- # install clipboard.js
+# A modern approach to copy text to clipboard
+# https://clipboardjs.com/
+npm install clipboard --save -->
 ```
 
 ## Version
+
 ```cmd
 D:\Develop\WebApplication>node -v
 v16.14.0
