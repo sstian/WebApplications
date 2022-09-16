@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ajax-jquery</title>
+  <style>
+    #content {
+      width: 300px;
+      height: 100px;
+      border: 1px solid;
+    }
+  </style>
+  <script type="text/javascript" src="./js/jquery.min.js"></script>
+</head>
+
+<body>
+  <button id="btn1">click to send request (jquery-ajax-get)</button>
+  <button id="btn2">click to send request (jquery-ajax-post)</button>
+  <div id="content"></div>
+
+  <script type="text/javascript">
+    const btn1 = $("#btn1");
+    const btn2 = $("#btn2");
+    const content = $("#content");
+
+    btn1.click(() => {
+      // 使用jQuery发送ajax-get（完整版）
+      $.ajax({
+        url: "http://127.0.0.1:8000/get_test_jquery",  // 请求地址
+        method: "GET",  // 请求方式（默认为GET）
+        data: { school: "snow" },  // 请求参数
+        dataType: "json",  // 配置响应数据格式
+        timeout: 2000,  // 指定超时时间，单位：毫秒
+        success: (result, responseText, xhr) => {
+          console.log(result, responseText, xhr);
+          const { name, price } = result;
+          content.append(`<div>car: ${name}, price: ${price}</div>`);
+        },  // 成功的回调
+        error: (xhr) => { console.log("error", xhr); }  // 失败的回调：请求出错或超时均失败
+      });
+
+      // // 使用jQuery发送ajax-get（精简版）
+      // $.get("http://127.0.0.1:8000/get_test_jquery", { school: "snow" }, (data) => {
+      //   console.log(data);
+      // }, "json");
+
+    });
+
+  </script>
+</body>
+
+</html>

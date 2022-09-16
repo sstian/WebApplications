@@ -7,7 +7,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "local": "npm install && npm start"
+    "dev": "npm install && npm start"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",

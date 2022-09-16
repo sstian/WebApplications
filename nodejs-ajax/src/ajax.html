@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ajax</title>
+  <style>
+    #content {
+      width: 300px;
+      height: 100px;
+      border: 1px solid;
+    }
+  </style>
+</head>
+
+<body>
+  <h3>test: ajax</h3>
+  <button id="btn">click to send request (js-ajax-get)</button>
+  <div id="content"></div>
+
+  <script type="text/javascript">
+    // 获取元素
+    const btn = document.getElementById("btn");
+    const content = document.getElementById("content");
+    // 给按钮绑定监听事件
+    btn.onclick = () => {
+      // 1. 创建XMLHttpRequest实例对象
+      const xhr = new XMLHttpRequest();
+      // xhr内部有5种状态，值分别为：0,1,2,3,4
+      // xhr实例对象，实例化时状态值为0，数据全部接收完毕时状态值为4
+      xhr.onreadystatechange = () => {
+        if (xhr.readyState === 4) {
+          if (xhr.status >= 200 && xhr.status < 300) {
+            console.log(xhr.response);
+            content.innerHTML = `<h3>${xhr.response}</h3>`;
+          }
+        }
+      };
+      // 2. 指定发送请求的：method, url，参数
+
+      // 2.1 GET
+      // xhr.open("GET", "http://127.0.0.1:8000/get_test");
+      // xhr.open("GET", "http://127.0.0.1:8000/get_test?name=jack&age=18"); // query args
+      // xhr.open("GET", "http://127.0.0.1:8000/get_test2/jack/18");  // params args
+      xhr.open("GET", "http://127.0.0.1:8000/get_person");
+      // responseType用于指定返回数据的格式
+      xhr.responseType = "json";
+      // 3. 发送请求
+      xhr.send();
+
+      // 2.2 POST
+      // xhr.open("POST", "http://127.0.0.1:8000/post_test");
+
+      // // 2.2.1 追加响应头用于标识携带请求体参数的编码形式 - urlencoded
+      // xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      // // 3. 发送请求
+      // xhr.send("name=jack&age=18");
+
+      // // 2.2.2 追加响应头用于标识携带请求体参数的编码形式 - json
+      // xhr.setRequestHeader("Content-type", "application/json");
+      // // 3. 发送请求
+      // const person = { name: "jack", age: 18 };
+      // xhr.send(JSON.stringify(person));
+    };
+  </script>
+</body>
+
+</html>
