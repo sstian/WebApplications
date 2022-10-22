@@ -3,7 +3,7 @@
  */
 
 // 引入数据库连接模块
-const connectMongoDB = require("./db/db");
+const connectMongoDB = require("./db");
 // 引入学生模型
 const studentModel = require("./model/studentModel");
 // 引入教师模型
@@ -54,13 +54,11 @@ function crud() {
   // });
 }
 
-connectMongoDB((err) => {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log("connect ok");
+connectMongoDB(
+  () => {
     // 3. 操作数据库
     crud();
-  }
-});
+  },
+  (err) => { console.log(err); }
+);
 

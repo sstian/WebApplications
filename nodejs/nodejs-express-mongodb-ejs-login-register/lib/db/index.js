@@ -6,9 +6,9 @@ const mongoose = require("mongoose");
 
 const DB_HOST = "localhost";
 const DB_PORT = 27017;
-const DB_NAME = "star";
+const DB_NAME = "snow";
 
-function connectMongoDB(callback) {
+function connectMongoDB(success, failed) {
   // 1. 连接数据库
   // "mongodb://localhost:27017/star"
   mongoose.connect(`mongodb://${DB_HOST}:${DB_PORT}/${DB_NAME}`, {
@@ -21,10 +21,10 @@ function connectMongoDB(callback) {
     if (err) {
       const message = "connect mongodb server failed";
       console.log(message, err);
-      callback(message);
+      failed(message);
     } else {
       console.log("connect mongodb server successfully");
-      callback();
+      success();
     }
   });
 }

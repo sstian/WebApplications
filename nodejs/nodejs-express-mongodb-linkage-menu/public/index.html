@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>三级联动菜单</title>
+</head>
+
+<body>
+  省：
+  <select id="province">
+    <option value="">请选择省</option>
+  </select>
+
+  市：
+  <select id="city">
+    <option value="">请选择市</option>
+  </select>
+
+  区/县：
+  <select id="country">
+    <option value="">请选择区/县</option>
+  </select>
+
+  <script type="text/javascript" src="../assets/jquery-3.6.1.js"></script>
+  <script type="text/javascript">
+    // 定义常量
+    const BASE_URL = "http://localhost:3000";
+
+    // 获取三个选择框节点（jquery对象）
+    let $province = $("#province");
+    let $city = $("#city");
+    let $country = $("#country");
+
+    $(() => {
+      console.log("$()...");
+      // 初始发请求，获取所有省份信息
+      $.get(BASE_URL + "/provinces", (response) => {
+        console.log("/provinces - response", response);
+        const { status, data, err } = response;
+        if (status === 0) {
+          window.alert(err);
+        } else {
+          let html = "";
+          data.forEach(item => {
+            html += `<option value="${item.province}">${item.name}</option>`;
+          });
+          $province.append(html);
+        }
+      });
+
+      // 当省份选项变化时：1. 获取所选省编码  2. 发请求获取对应所有市
+      $province.change(() => {
+        const province = $province.val();
+        console.log("$province.change - $province.val()", province);
+
+        $city.html(`<option value="">请选择市</option>`);
+        $country.html(`<option value="">请选择区/县</option>`);
+
+        $.get(BASE_URL + "/cities", { province }, (response) => {
+          console.log("/cities - response", response);
+          const { status, data, err } = response;
+          if (status === 0) {
+            window.alert(err);
+          } else {
+            let html = "";
+            data.forEach(item => {
+              html += `<option value="${item.city}">${item.name}</option>`;
+            });
+            $city.append(html);
+          }
+        });
+      });
+
+      // 当市选项变化时：1. 获取所选市编码  2. 发请求获取对应所有区/县
+      $city.change(() => {
+        const province = $province.val();
+        const city = $city.val();
+        console.log("$city.change - $province.val(),  $city.val()", province, city);
+
+        $country.html(`<option value="">请选择区/县</option>`);
+
+        $.get(BASE_URL + "/countries", { province, city }, (response) => {
+          console.log("/countries - response", response);
+          const { status, data, err } = response;
+          if (status === 0) {
+            window.alert(err);
+          } else {
+            let html = "";
+            data.forEach(item => {
+              html += `<option value="${item.country}">${item.name}</option>`;
+            });
+            $country.append(html);
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+
+</html>
