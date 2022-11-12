@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- 开启理想视口标准 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>rem适配-方案一</title>
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  #demo {
+    width: 3.45rem;
+    height: 1.50rem;
+    margin: 0 auto;
+    margin-top: 0.15rem;
+    background-color: skyblue;
+    border: 1px solid black;
+  }
+</style>
+
+<body>
+  <div id="demo"></div>
+  <script type="text/javascript">
+    function adapter() {
+      console.log("adapter()");
+
+      // 获取布局视口宽度。因为开启了理想视口，布局视口==设备横向独立像素值
+      const dpWidth = document.documentElement.clientWidth;
+      // 计算根字体大小：方案一
+      const rootFontSize = (dpWidth * 100) / 375;
+      // 设置根字体大小
+      document.documentElement.style.fontSize = rootFontSize + "px";
+    }
+
+    adapter();
+    window.onresize = adapter;
+  </script>
+</body>
+
+</html>
