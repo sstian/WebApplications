@@ -1,0 +1,13 @@
+function splitPhone(phone) {
+  console.log("splitPhone(): phone", phone);
+  if (phone.length !== 11) return phone;
+
+  var numbers = phone.split("");
+  numbers.splice(3, 0, "-");
+  numbers.splice(8, 0, "-");
+  return numbers.join("");
+}
+
+module.exports = {
+  splitPhone: splitPhone
+}
