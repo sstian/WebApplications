@@ -39,3 +39,14 @@ Note: If you're using Linux Bash for Windows, [see this guide](https://www.howto
 ## License
 
 [CC0 1.0 (Public Domain)](LICENSE.md)
+
+## Packaging
+```cmd
+# Importing your project into Forge
+npm install --save-dev @electron-forge/cli
+npx electron-forge import
+
+# Creating a distributable
+npm run make
+```
+

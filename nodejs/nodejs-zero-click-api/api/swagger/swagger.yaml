@@ -1,0 +1,61 @@
+openapi: "3.0.0"
+info: 
+  title: nodejs zero click api
+  description: |
+    This API is used to operate file data with CRUD.
+  version: 0.1.0
+paths:
+  /api/v1/info/streams:
+    get:
+      summary: Retrieves all streams
+      description: |
+        Retrieves all streams from json file.
+      tags:
+       - info
+      response:
+        "200":
+          description: OK
+          content: 
+            applicaation/json:
+              schema: 
+                type: array
+                items:
+                  $ref: "#components/schemas/Stream"
+        default:
+          $ref: "#/components/response/Error"
+
+components:
+  schemas:
+    Stream:
+      type: object
+      description: filled-in record
+      properties:
+        name:
+          type: string
+          description: stream name
+          examaple: DESKTOP
+        time:
+          type: string
+          description: stream time
+          example: 2022-12-20 12:00
+        email:
+          type: string
+          description: stream email
+          example: xxx@yyy.com
+  response:
+    Error:
+      description: error object
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              statusCode:
+                type: number
+                description: HTTP status code
+              error:
+                type: string
+                description: HTTP status
+              message:
+                type: string
+                description: Detailed message

@@ -1,0 +1,5 @@
+logLevel: debug
+# ip: 127.0.0.1
+port: 3300
+cacheFolder: \\snowserver\batch\cache\
+packageFolder: \\snowserver\batch\package\

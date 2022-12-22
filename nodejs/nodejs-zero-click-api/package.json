@@ -1,0 +1,32 @@
+{
+  "name": "nodejs-zero-click-api",
+  "version": "0.1.0",
+  "description": "Automated provisioning of API",
+  "private": true,
+  "license": "ISC",
+  "homepage": "http://127.0.0.1:3300",
+  "index": "server.js",
+  "scripts": {
+    "start": "node ./server.js",
+    "stop": "taskkill -F -IM node.exe",
+    "local": "powershell ./start.ps1",
+    "dev": "npm install && npm start",
+    "mon": "nodemon ./server.js -e js,yml,yaml",
+    "test": "mocha --recrusive --exit",
+    "coverage": "nyc --reporter=text npm test"
+  },
+  "dependencies": {
+    "@hapi/boom": "^9.1.4",
+    "axios": "^0.25.0",
+    "convict": "^6.2.3",
+    "convict-format-with-validator": "^6.2.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-request-id": "^1.4.1",
+    "js-yaml": "^4.1.0",
+    "morgan": "^1.10.0",
+    "swagger-stats": "^0.99.2",
+    "swagger-ui-express": "^4.2.0",
+    "winston": "^3.3.3"
+  }
+}
