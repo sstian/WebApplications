@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue_collect_form_data</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 准备好一个容器 -->
+    <div id="root">
+        <form @submit.prevent="submit">
+            <label for="account">账号：</label>
+            <input type="text" id="account" v-model.trim="userInfo.account"> <br /><br />
+            <label for="password">密码：</label>
+            <input type="password" id="password" v-model="userInfo.password"> <br /><br />
+            <label for="age">年龄：</label>
+            <input type="number" id="age" v-model.number="userInfo.age"> <br /><br />
+            性别：
+            男<input type="radio" name="sex" value="male" v-model="userInfo.sex">
+            女<input type="radio" name="sex" value="female" v-model="userInfo.sex"> <br /><br />
+            爱好：
+            学习<input type="checkbox" value="study" v-model="userInfo.hobby">
+            看电影<input type="checkbox" value="movie" v-model="userInfo.hobby">
+            打游戏<input type="checkbox" value="game" v-model="userInfo.hobby"> <br /><br />
+            所属校区：
+            <select v-model="userInfo.area">
+                <option value="">请选择校区</option>
+                <option value="beijing">北京</option>
+                <option value="shanghai">上海</option>
+                <option value="shenzhen">深圳</option>
+                <option value="wuhan">武汉</option>
+            </select><br /><br />
+            其他信息：<textarea v-model.lazy="userInfo.other"></textarea> <br /><br />
+            <input type="checkbox" v-model="userInfo.agree">
+            阅读并接受<a href="https://www.baidu.com">《用户协议》</a><br /><br />
+            <button>提交</button>
+        </form>
+    </div>
+</body>
+<script type="text/javascript">
+    // 阻止vue在启动时生成生产提示。配置不生效。
+    // 直接修改源文件vue.js，改为 productionTip: false
+    // Vue.config.productionTip = false;
+    // vue实例化
+    const vm = new Vue({
+        el: "#root",
+        data: {
+            userInfo: {
+                account: "",
+                password: "",
+                age: "",
+                sex: "female",
+                hobby: [],
+                area: "beijing",
+                other: "",
+                agree: "",
+            }
+        },
+        methods: {
+            submit() {
+                console.log("userInfo", this.userInfo);
+            }
+        },
+    });
+</script>
+
+</html>
