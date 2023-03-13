@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>柱形图</title>
+  <!-- 引入highcharts -->
+  <script type="text/javascript" src="js/highcharts.js"></script>
+</head>
+
+<body>
+  <!-- 图表容器 -->
+  <div id="container" style="width: 500px; height: 500px;"></div>
+  <script type="text/javascript">
+    // 数据
+    let names = ["孙悟空", "唐三藏", "猪八戒", "沙和尚", "白龙马"];
+    let salaries = [9000, 10000, 3000, 8000, 2000];
+
+    // 图表配置
+    let options = {
+      // 图表类型：柱形图
+      chart: { type: "column" },
+      // 图表标题
+      title: { text: "员工工资一览表" },
+      // 去除官网标识
+      credits: { enabled: false },
+      // x轴分类
+      xAxis: { categories: names },
+      // y轴标题
+      yAxis: { title: { text: "工资" }, min: 0 },
+      // 数据列
+      series: [
+        {
+          name: "工资",
+          data: salaries
+        }
+      ]
+    };
+    // 创建图表
+    Highcharts.chart("container", options);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>websocket</title>
+</head>
+
+<body>
+  <button id="connect">连接</button>
+  <button id="send" disabled="true">发送数据</button><br>
+  从服务器接收的数据如下：<br>
+  <span id="receive"></span>
+
+  <script>
+    let connectButton = document.querySelector("#connect");
+    let sendButton = document.querySelector("#send");
+    let receiveSpan = document.querySelector("#receive");
+
+    let ws = null;
+    connectButton.onclick = function () {
+      ws = new WebSocket("ws://localhost:4000");
+      ws.onopen = () => {
+        console.log("connect server is ok.");
+        sendButton.disabled = false;
+      };
+
+      ws.onclose = () => {
+        console.log("connect server is failed.");
+        send.disabled = true;
+      };
+      ws.onmessage = (msg) => {
+        console.log("server: ", msg);
+        receiveSpan.innerHTML = msg.data;
+      };
+    };
+
+    sendButton.onclick = function () {
+      ws.send("frontend: hello");
+    };
+
+  </script>
+</body>
+
+</html>

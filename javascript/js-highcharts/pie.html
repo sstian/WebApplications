@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>饼形图</title>
+  <script type="text/javascript" src="js/highcharts.js"></script>
+</head>
+
+<body>
+  <div id="container" style="width: 500px; height: 500px;"></div>
+  <script type="text/javascript">
+    let options = {
+      chart: { type: "pie" },
+      title: { text: "浏览器占比（模拟数据）" },
+      series: [
+        {
+          name: "浏览器访问量占比",
+          data: [
+            ["FireFox", 35], ["IE", 20], ["Chrome", 15], ["Safari", 8.5], ["Opera", 10], ["Others", 6.5]
+          ]
+        }
+      ]
+    };
+    Highcharts.chart("container", options);
+  </script>
+</body>
+
+</html>
