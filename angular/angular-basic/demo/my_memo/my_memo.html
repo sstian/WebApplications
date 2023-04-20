@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>my_memo</title>
+</head>
+
+<body ng-app="memoApp">
+  <div ng-controller="MemoController">
+    <h2>我的备忘录</h2>
+    <div>
+      <input type="text" ng-model="newTodo">
+      <button ng-click="add()">添加</button>
+    </div>
+    <div ng-repeat="todo in todos">
+      <input type="checkbox" ng-model="todo.checked">
+      <span>{{todo.name}}</span>
+    </div>
+    <button ng-click="del()">删除选中的记录</button>
+  </div>
+
+  <script type="text/javascript" src="../../js/1.8.3/angular.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+</body>
+
+</html>
