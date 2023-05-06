@@ -1,0 +1,14 @@
+.header {
+  height: 44ppx;
+  line-height: 44px;
+  background: skyblue;
+  color: white;
+
+  a {
+    color: white;
+    padding: 10px 40px;
+  }
+  .active {
+    color: lightcoral;
+  }
+}

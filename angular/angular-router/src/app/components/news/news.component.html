@@ -1,0 +1,19 @@
+<p>news works!</p>
+
+<h3>query</h3>
+<ul>
+  <li *ngFor="let item of newslist; let key = index">
+    <a [routerLink]="['/content']" [queryParams]="{'cid': key}">{{key}}--{{item}}</a>
+  </li>
+</ul>
+
+<h3>param</h3>
+<ul>
+  <li *ngFor="let item of newslist; let key = index">
+    <a [routerLink]="['/contents', key]">{{key}}--{{item}}</a>
+  </li>
+</ul>
+
+<h3>编程式路由导航</h3>
+<button (click)="queryNavigate()">queryNavigate</button><br/><br/>
+<button (click)="paramNavigate()">paramNavigate</button>
