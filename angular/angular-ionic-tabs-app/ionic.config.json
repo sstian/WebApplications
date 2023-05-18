@@ -1,0 +1,7 @@
+{
+  "name": "angular-ionic-tabs-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

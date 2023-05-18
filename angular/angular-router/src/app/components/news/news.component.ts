@@ -18,8 +18,15 @@ export class NewsComponent implements OnInit {
   }
 
   queryNavigate() {
-    const extras: NavigationExtras = { queryParams: { "cid": 1 } };
+    const extras: NavigationExtras = { queryParams: { cid: 1 } };
     this.router.navigate(["/content"], extras);
+    
+    // // http://localhost:4200/content?cid=1#abc
+    // this.router.navigate(["/content"], {
+    //   queryParams: { cid: 1 },
+    //   fragment: "abc",
+    //   replaceUrl: true
+    // });
   }
 
   paramNavigate() {

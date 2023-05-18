@@ -33,10 +33,10 @@ export class RequestService {
 
   // 异步，RxJS
   getRxJSData() {
-    return new Observable((observer) => {
+    return new Observable((subscriber) => {
       window.setTimeout(() => {
         const data = "getRxJSData";
-        observer.next(data);
+        subscriber.next(data);
       }, 3000);
     });
   }
@@ -44,10 +44,10 @@ export class RequestService {
   // 异步，RxJS，多次触发
   getRxJSIntervalData() {
     let count = 0;
-    return new Observable((observer) => {
+    return new Observable((subscriber) => {
       window.setInterval(() => {
         const data = "getRxJSIntervalData " + (++count);
-        observer.next(data);
+        subscriber.next(data);
       }, 3000);
     });
   }
@@ -55,10 +55,10 @@ export class RequestService {
   // 异步，RxJS，多次触发
   getRxJSIntervalNumber() {
     let count = 0;
-    return new Observable((observer) => {
+    return new Observable((subscriber) => {
       window.setInterval(() => {
         const data = ++count;
-        observer.next(data);
+        subscriber.next(data);
       }, 1000);
     });
   }
