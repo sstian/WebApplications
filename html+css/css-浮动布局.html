@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>css-浮动布局.html</title>
+  <style>
+    .box {
+      margin: 0 auto;
+      border: 1px solid black;
+      width: 1000px;
+    }
+
+    .banxin {
+      width: 960px;
+      margin: 0 auto 10px;
+      text-align: center;
+    }
+
+    .top {
+      height: 80px;
+    }
+
+    .logo,
+    .banner1,
+    .banner2 {
+      background-color: #ccc;
+      float: left;
+      line-height: 80px;
+    }
+
+    .logo,
+    .banner2 {
+      width: 200px;
+    }
+
+    .banner1 {
+      width: 540px;
+      margin: 0 10px;
+    }
+
+    .parent::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    .left {
+      float: left;
+    }
+
+    .center {
+      float: left;
+    }
+
+    .right {
+      float: left;
+    }
+
+    .box1,
+    .box2 {
+      width: 370px;
+      height: 200px;
+      line-height: 200px;
+      border: 1px solid black;
+      margin-bottom: 10px;
+    }
+
+    .box3,
+    .box4,
+    .box5,
+    .box6 {
+      width: 180px;
+      height: 200px;
+      line-height: 200px;
+      border: 1px solid black;
+      float: left;
+      margin-right: 7.2px;
+    }
+
+    .box7,
+    .box8,
+    .box9 {
+      width: 200px;
+      height: 130px;
+      line-height: 130px;
+      border: 1px solid black;
+    }
+
+    .box8 {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .menu {
+      height: 30px;
+      background-color: #ccc;
+      margin-bottom: 10px;
+    }
+
+    .footer {
+      height: 60px;
+      background-color: #ccc;
+      line-height: 60px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="top banxin">
+      <div class="logo">logo</div>
+      <div class="banner1">banner1</div>
+      <div class="banner2">banner2</div>
+    </div>
+    <div class="menu banxin">菜单</div>
+    <div class="parent banxin">
+      <div class="left">
+        <div class="box1">栏目1</div>
+        <div class="box3">栏目3</div>
+        <div class="box4">栏目4</div>
+      </div>
+      <div class="center">
+        <div class="box2">栏目2</div>
+        <div class="box5">栏目5</div>
+        <div class="box6">栏目6</div>
+      </div>
+      <div class="right">
+        <div class="box7">栏目7</div>
+        <div class="box8">栏目8</div>
+        <div class="box9">栏目9</div>
+      </div>
+    </div>
+    <div class="footer banxin">页脚</div>
+  </div>
+</body>
+
+</html>

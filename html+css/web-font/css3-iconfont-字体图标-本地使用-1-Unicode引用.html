@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>css3-iconfont-字体图标-本地使用-1-Unicode引用.html</title>
+  <style>
+    /* 第一步：拷贝项目下面生成的 @font-face */
+    @font-face {
+      font-family: 'iconfont';
+      src: url('./iconfont/iconfont.woff2?t=1688821581167') format('woff2'),
+        url('./iconfont/iconfont.woff?t=1688821581167') format('woff'),
+        url('./iconfont/iconfont.ttf?t=1688821581167') format('truetype');
+    }
+
+    /* 第二步：定义使用 iconfont 的样式 */
+    .iconfont {
+      font-family: "iconfont" !important;
+      font-size: 40px;
+      font-style: normal;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 第三步：挑选相应图标并获取字体编码，应用于页面 -->
+  <span class="iconfont">&#xe613;</span>
+  <span class="iconfont">&#xe605;</span>
+  <span class="iconfont">&#xe614;</span>
+  <span class="iconfont">&#xe616;</span>
+</body>
+
+</html>

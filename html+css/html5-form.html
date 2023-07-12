@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>html5-form</title>
+</head>
+
+<body>
+  <form action="">
+    <!-- 文本输入框 -->
+    <label for="zhangsan">账户：</label>
+    <input id="zhangsan" type="text" name="account" placeholder="请输入账号" required autofocus autocomplete="on"
+      pattern="\w{6}">
+    <br>
+    <!-- 密码输入框 -->
+    <label>
+      密码：
+      <input id="mima" type="password" name="pwd" placeholder="请输入账号" required>
+    </label>
+    <br>
+    <!-- 单选按钮 -->
+    性别：
+    <label><input id="nan" type="radio" name="gender" value="male" required>男</label>
+    <label><input id="nv" type="radio" name="gender" value="female">女</label>
+    <br>
+
+    <!-- 复选框 -->
+    爱好：
+    <label><input type="checkbox" name="hobby" value="smoke">抽烟</label>
+    <label><input type="checkbox" name="hobby" value="drink" required>喝酒</label>
+    <label><input type="checkbox" name="hobby" value="perm">烫头</label>
+    <br>
+    <!-- 文本域 -->
+    其它：
+    <label><textarea id="qita" name="other"></textarea></label>
+    <br>
+    <button>提交</button>
+  </form>
+</body>
+
+</html>

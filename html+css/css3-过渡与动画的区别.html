@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>css3-过渡与动画的区别</title>
+  <style>
+    .outer {
+      width: 1000px;
+      height: 200px;
+      border: 1px solid black;
+    }
+
+    .inner {
+      width: 100px;
+      height: 100px;
+    }
+
+    /* 用过渡，实现inner1跑到右边 */
+    .inner1 {
+      background-color: orange;
+      transition: 3s linear;
+    }
+
+    .outer:hover .inner1 {
+      transform: translate(900px);
+    }
+
+    /* 用动画，实现inner2跑到右边 */
+    .inner2 {
+      background-color: green;
+      animation: snowflake 1s linear;
+    }
+
+    @keyframes snowflake {
+      0% {}
+
+      100% {
+        transform: translate(900px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="outer">
+    <div class="inner inner1">过渡</div>
+    <div class="inner inner2">动画</div>
+  </div>
+</body>
+
+</html>

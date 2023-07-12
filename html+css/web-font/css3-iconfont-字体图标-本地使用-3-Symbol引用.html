@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 第一步：引入项目下面生成的 symbol 代码： -->
+  <script src="./iconfont/iconfont.js"></script>
+  <title>css3-iconfont-字体图标-本地使用-3-Symbol引用.html</title>
+  <!-- 第二步：加入通用 CSS 代码（引入一次就行）：[可选的] -->
+  <style>
+    .icon {
+      width: 2em;
+      height: 2em;
+      vertical-align: -0.15em;
+      fill: currentColor;
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 第三步：挑选相应图标并获取类名，应用于页面： -->
+  <svg class="icon" aria-hidden="true">
+    <use xlink:href="#icon--"></use>
+  </svg>
+  <svg class="icon" aria-hidden="true">
+    <use xlink:href="#icon-xiangjiao"></use>
+  </svg>
+  <svg class="icon" aria-hidden="true">
+    <use xlink:href="#icon-icon-test"></use>
+  </svg>
+  <svg class="icon" aria-hidden="true">
+    <use xlink:href="#icon-icon-test1"></use>
+  </svg>
+</body>
+
+</html>
