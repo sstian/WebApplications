@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>classstyle</title>
+  <style>
+    .b1 {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+
+    .b2 {
+      width: 200px;
+      height: 200px;
+      background-color: yellow;
+    }
+  </style>
+  <script type="text/javascript" src="./js/useClassStyle.js"></script>
+  <script>
+    window.onload = function () {
+      var btn1 = document.getElementById("btn1");
+      var box1 = document.getElementById("box1");
+
+      btn1.onclick = function () {
+        // box1.style.width = "200px";
+        // box1.style.height = "200px";
+        // box1.style.backgroundColor = "yellow";
+
+        // box1.className += " " + "b2";
+        toggleClassStyle(box1, "b2");
+      };
+    };
+  </script>
+</head>
+
+<body>
+  <button id="btn1">切换box样式</button>
+  <br /><br />
+  <div class="b1" id="box1"></div>
+</body>
+
+</html>

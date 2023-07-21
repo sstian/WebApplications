@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>wheelflex</title>
+  <style>
+    #box1 {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      position: absolute;
+    }
+  </style>
+  <script type="text/javascript" src="./js/useWheelFlex.js"></script>
+  <script type="text/javascript" src="./js/useEventBind.js"></script>
+  <script>
+    window.onload = function () {
+      var box1 = document.getElementById("box1");
+
+      useWheelFlex(box1, 30);
+
+      // onmousewheel 鼠标滚轮事件，会在滚轮滚动时触发
+      // FireFox 不支持该属性，需要使用 DOMMouseScrol1 + addEventListener() 来绑定滚动事件
+      useEventBind(box1, "DOMMouseScroll", box1.onmousewheel);
+    };
+  </script>
+
+<body>
+  <div id="box1"></div>
+</body>
+
+</html>

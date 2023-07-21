@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>timermove</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #box1 {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      position: absolute;
+    }
+
+    #box2 {
+      width: 100px;
+      height: 100px;
+      background-color: yellow;
+      position: absolute;
+      left: 0;
+      top: 200px;
+    }
+
+    #line1 {
+      width: 0;
+      height: 1000px;
+      border-left: 1px solid black;
+      position: absolute;
+      left: 800px;
+    }
+  </style>
+  <script type="text/javascript" src="./js/useTimerMove.js"></script>
+
+  <script>
+    window.onload = function () {
+
+      var btn1 = document.getElementById("btn1");
+      var btn2 = document.getElementById("btn2");
+      var btn3 = document.getElementById("btn3");
+      var btn4 = document.getElementById("btn4");
+
+      var box1 = document.getElementById("box1");
+      var box2 = document.getElementById("box2");
+
+      btn1.onclick = function () {
+        // 移动到左边偏移800px位置处
+        useTimerMove(box1, "left", 800, 10);
+      };
+      btn2.onclick = function () {
+        useTimerMove(box1, "left", 0, 10);
+      };
+      btn3.onclick = function () {
+        useTimerMove(box2, "left", 800, 30);
+      };
+      btn4.onclick = function () {
+        useTimerMove(box2, "width", 800, 10, function () {
+          useTimerMove(box2, "height", 400, 10, function () {
+            useTimerMove(box2, "top", 0, 10, function () {
+              useTimerMove(box2, "width", 100, 10, function () {
+                useTimerMove(box2, "height", 100, 10, function () {
+                  useTimerMove(box2, "top", 200, 10, function () {
+
+                  });
+                });
+              });
+            });
+          });
+        });
+      };
+    };
+  </script>
+</head>
+
+<body>
+  <button id="btn1">box1右移</button>
+  <button id="btn2">box1左移</button>
+  <button id="btn3">box2左移</button>
+  <button id="btn4">box2变换</button>
+  <br /><br />
+  <div id="box1"></div>
+  <div id="box2"></div>
+  <div id="line1"></div>
+</body>
+
+</html>

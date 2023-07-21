@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>prototype-class</title>
+</head>
+
+<body>
+  <h1>prototype-class</h1>
+  <script>
+    class People {
+      // name;
+      // age;
+      // sex;
+      constructor(name, age, sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+      }
+
+      speak () {
+        console.log("this 1", this);
+        return "speak... Hi, I'm " + this.name;
+      }
+
+      talk () {
+        console.log("this 2", this);
+        return "talk... Hi, I'm " + this.name;
+      }
+
+      static home = "earth";
+
+    }
+
+    People.prototype.count = 0;
+    // People.prototype.speak = function () {
+    //   console.log("this 1", this);
+    //   return "speak... Hi, I'm " + this.name;
+    // }
+    // People.prototype.talk = () => {
+    //   console.log("this 2", this);
+    //   return "talk... Hi, I'm " + this.name;
+    // }
+
+    // People.home = "earth";
+
+
+    var jack = new People("jack", 20, true);
+    console.log("jack:", jack);
+    console.log("People.length", People.length);
+    console.log("People.name", People.name);
+    console.log("jack.count:", jack.count);
+    console.log("jack.name:", jack.name);
+    console.log("jack.speak():", jack.speak());
+    console.log("jack.talk():", jack.talk());
+    console.log("jack.toString():", jack.toString());
+
+    console.log("People.prototype:",);
+    console.log("jack.__proto__:",);
+    console.log("jack.prototype == jack.__proto__:", People.prototype == jack.__proto__);
+
+    console.log("jack.home:", jack.home);
+    console.log("People.home:", People.home);
+    console.log("jack.__proto__.constructor:", jack.__proto__.constructor);
+    console.log("jack.__proto__.constructor.home:", jack.__proto__.constructor.home);
+    console.log("jack.__proto__.__proto__:", jack.__proto__.__proto__);
+    console.log("jack.__proto__.__proto__.__proto__:", jack.__proto__.__proto__.__proto__);
+
+  </script>
+</body>
+
+</html>

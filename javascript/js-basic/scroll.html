@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>scroll</title>
+  <style>
+    #info {
+      width: 300px;
+      height: 500px;
+      background-color: #bbffaa;
+      overflow: auto;
+    }
+  </style>
+  <script>
+    window.onload = function () {
+      var info = document.getElementById("info");
+      var inputs = document.getElementsByTagName("input");
+
+      // 为表达项绑定滚动条滚动事件
+      info.onscroll = function () {
+        // 检查垂直滚动条是否滚动到底
+        if (info.scrollHeight - info.scrollTop == info.clientHeight) {
+          // 使表单项可用
+          inputs[0].disabled = false;
+          inputs[1].disabled = false;
+        }
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <h3>欢迎亲爱的用户注册</h3>
+  <p id="info">
+    亲爱的用户，请仔细阅读以下协议：
+    The npm application
+    Copyright (c) npm, Inc. and Contributors
+    Licensed on the terms of The Artistic License 2.0
+
+    Node package dependencies of the npm application
+    Copyright (c) their respective copyright owners
+    Licensed on their respective license terms
+
+    The npm public registry at https://registry.npmjs.org
+    and the npm website at https://www.npmjs.com
+    Operated by npm, Inc.
+    Use governed by terms published on https://www.npmjs.com
+
+    "Node.js"
+    Trademark Joyent, Inc., https://joyent.com
+    Neither npm nor npm, Inc. are affiliated with Joyent, Inc.
+
+    The Node.js application
+    Project of Node Foundation, https://nodejs.org
+
+    The npm Logo
+    Copyright (c) Mathias Pettersson and Brian Hammond
+
+    "Gubblebum Blocky" typeface
+    Copyright (c) Tjarda Koster, https://jelloween.deviantart.com
+    Used with permission
+
+    --------
+  </p>
+  <input type="checkbox" disabled="disabled" />我已仔细阅读协议
+  <input type="submit" value="注册" disabled="disabled" />
+
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dragdrop</title>
+  <style>
+    #box1 {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      position: absolute;
+    }
+    #box2 {
+      width: 100px;
+      height: 100px;
+      background-color: blue;
+      position: absolute;
+    }
+  </style>
+  <script type="text/javascript" src="./js/useDragDrop.js"></script>
+  <script>
+    window.onload = function () {
+      var box1 = document.getElementById("box1");
+      var box2 = document.getElementById("box2");
+      useDragDrop(box1);
+      useDragDrop(box2);
+    };
+  </script>
+</head>
+
+<body>
+  我是一段文字
+  <div id="box1"></div>
+  <div id="box2"></div>
+</body>
+
+</html>
