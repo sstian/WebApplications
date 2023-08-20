@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>my-promise</title>
+</head>
+
+<body>
+  <script>
+    // const PENDING = "PENDING";
+    // const FULFILLED = "FULFILLED";
+    // const REJECTED = "REJECTED";
+
+    // 手写Promise
+    class MyPromise {
+      static PENDING = "PENDING";
+      static FULFILLED = "FULFILLED";
+      static REJECTED = "REJECTED";
+
+      constructor(executor) {
+        // 默认状态
+        this.status = MyPromise.PENDING;
+
+        // 内部维护的变量值
+        this.value = undefined;
+        this.reason = undefined;
+
+        // 存放回调
+        this.onResolvedCallbacks = [];
+        this.onRejectedCallbacks = [];
+
+        // 成功的回调
+        let resolve = value => {
+          // 单向流转
+          if (this.status === MyPromise.PENDING) {
+            this.status = MyPromise.FULFILLED;
+            this.value = value;
+            this.onResolvedCallbacks.forEach(fn => fn());
+          }
+        };
+
+        // 失败的回调
+        let reject = reason => {
+          // 单向流转
+          if (this.status === MyPromise.PENDING) {
+            this.status = MyPromise.REJECTED;
+            this.reason = reason;
+            this.onRejectedCallbacks.forEach(fn => fn());
+          }
+        };
+
+        try {
+          executor(resolve, reject);
+        } catch (error) {
+          reject(error);
+        }
+      }
+
+      then(onFulfilled, onRejected) {
+        if (this.status === MyPromise.FULFILLED) {
+          onFulfilled(this.value);
+        }
+        if (this.status === MyPromise.REJECTED) {
+          onRejected(this.reason);
+        }
+        if (this.status === MyPromise.PENDING) {
+          // 存放队列
+          this.onResolvedCallbacks.push(() => { onFulfilled(this.value) });
+          this.onRejectedCallbacks.push(() => { onRejected(this.reason) });
+        }
+        return this;
+      }
+
+    }
+
+    let p = new MyPromise((resolve, reject) => {
+      window.setTimeout(() => {
+        let data = "hello";
+        console.log(data);
+        resolve(data);
+      }, 1000);
+
+    });
+    p.then(
+      value => { console.log("value = ", value); },
+      reason => { console.log("reason = ", reason); }
+    );
+  </script>
+</body>
+
+</html>
