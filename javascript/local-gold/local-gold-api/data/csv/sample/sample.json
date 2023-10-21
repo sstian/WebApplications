@@ -1,0 +1,61 @@
+[
+  {
+    "data": [
+      {
+        "currentPage": "1",
+        "totalPage": "2",
+        "totalCount": "5",
+        "infos": [
+          {
+            "pId": "1839581",
+            "brandId": "2880",
+            "brandName": "周大福",
+            "url": "http://zhubao.cngold.org/brand/zhoudafu.html",
+            "productId": "11",
+            "productName": "黄金价格",
+            "price": "598.0",
+            "priceUnit": "元/克",
+            "raiseDownType": "3",
+            "updateTime": "2023-08-25"
+          },
+          {
+            "pId": "1838265",
+            "brandId": "2880",
+            "brandName": "周大福",
+            "url": "http://zhubao.cngold.org/brand/zhoudafu.html",
+            "productId": "11",
+            "productName": "黄金价格",
+            "price": "598.0",
+            "priceUnit": "元/克",
+            "raiseDownType": "1",
+            "updateTime": "2023-08-24"
+          },
+          {
+            "pId": "1837380",
+            "brandId": "2880",
+            "brandName": "周大福",
+            "url": "http://zhubao.cngold.org/brand/zhoudafu.html",
+            "productId": "11",
+            "productName": "黄金价格",
+            "price": "596.0",
+            "priceUnit": "元/克",
+            "raiseDownType": "1",
+            "updateTime": "2023-08-23"
+          },
+          {
+            "pId": "1836383",
+            "brandId": "2880",
+            "brandName": "周大福",
+            "url": "http://zhubao.cngold.org/brand/zhoudafu.html",
+            "productId": "11",
+            "productName": "黄金价格",
+            "price": "593.0",
+            "priceUnit": "元/克",
+            "raiseDownType": "3",
+            "updateTime": "2023-08-22"
+          }
+        ]
+      }
+    ]
+  }
+]

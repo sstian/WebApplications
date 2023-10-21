@@ -1,0 +1,1 @@
+<select name="" class="select_name" id="product_3" style="font-family: simsun;"><option value="11">黄金价格</option><option value="13">铂金价格</option><option value="56">饰品金价(内地)</option><option value="57">黄金饰品(香港)</option><option value="58">铂金价格(香港)</option><option value="59">金条价格(香港)</option><option value="80">金条金价(内地)</option></select>

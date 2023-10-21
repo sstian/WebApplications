@@ -1,0 +1,30 @@
+{
+  "name": "local-gold-api",
+  "version": "1.0.0",
+  "description": "Automated provisioning of API",
+  "keywords": [],
+  "author": "Tian",
+  "license": "ISC",
+  "main": "cngold-api.js",
+  "scripts": {
+    "start": "node ./server.js",
+    "stop": "taskkill -F -IM node.exe",
+    "dev": "npm install && npm start",
+    "mon": "nodemon ./server.js -e js,yml,yaml"
+  },
+  "dependencies": {
+    "@hapi/boom": "^10.0.1",
+    "axios": "^1.4.0",
+    "convict": "^6.2.4",
+    "convict-format-with-validator": "^6.2.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-request-id": "^1.4.1",
+    "js-yaml": "^4.1.0",
+    "morgan": "^1.10.0",
+    "rotating-file-stream": "^3.1.1",
+    "swagger-stats": "^0.99.7",
+    "swagger-ui-express": "^5.0.0",
+    "winston": "^3.10.0"
+  }
+}

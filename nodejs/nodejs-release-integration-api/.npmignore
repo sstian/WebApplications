@@ -1,0 +1,7 @@
+#.npmignore
+/.nyc_output
+/coverage
+/node
+You,6 months
+/sonar-project.properties
+/test

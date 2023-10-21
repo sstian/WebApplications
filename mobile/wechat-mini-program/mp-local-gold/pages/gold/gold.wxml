@@ -1,0 +1,4 @@
+<!--pages/gold.wxml-->
+<view class="my-echart">
+  <ec-canvas id="echarts_gold"></ec-canvas>
+</view>
