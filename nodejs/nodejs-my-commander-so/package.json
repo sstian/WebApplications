@@ -4,7 +4,7 @@
   "description": "So, Life so easy!",
   "main": "index.js",
   "bin": {
-    "so": "./bin/index.js"
+    "so": "./index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

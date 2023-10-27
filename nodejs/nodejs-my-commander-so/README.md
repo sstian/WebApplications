@@ -81,6 +81,7 @@ console.log(process.argv);
 3. link script.
 ```
 npm link
+// or npm install -g
 
 # 工作原理：
 > npm prefix -g
@@ -211,6 +212,7 @@ npm install ora@5
 
 # Terminal string styling done right
 # https://www.npmjs.com/package/chalk
+# Chalk 5 is ESM. If you want to use Chalk with TypeScript or a build tool, you will probably want to use Chalk 4 for now.
 # 在 5.x.x 版本之后不再使用 CommonJS 模块化规范而转为使用的 ES Module 的模块化规范，需要下载对应的最新 4.x.x 版本
 npm install chalk@4
 
