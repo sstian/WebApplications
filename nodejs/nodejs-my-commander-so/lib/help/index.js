@@ -9,7 +9,7 @@ const help = function (program) {
   program
     .name(packagejson.name)
     .usage("[options] command [args...]")
-    .description('so, life so easy!')
+    .description(packagejson.description)
     .version(packagejson.version, "-v, --version", "output the version number");
 };
 

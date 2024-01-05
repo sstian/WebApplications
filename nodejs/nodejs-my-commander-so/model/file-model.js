@@ -8,7 +8,7 @@ const fs = require("fs");
  * @returns JSON Object/Array
  */
 function readFileSyncSimple(filepath, options) {
-  const encoding = options?.encoding || "utf8";
+  const encoding = options?.encoding || "utf-8";
 
   const data = fs.readFileSync(filepath, encoding);
   return JSON.parse(data);
