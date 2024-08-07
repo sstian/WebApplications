@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; img-src 'self' data:">
+    <link rel="stylesheet" href="./index.css">
+    <title>Hello World!</title>
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+    <button id="btnClickMe">点我</button>
+    <br><hr>
+    <input id="input" type="text" >
+    <button id="btnWriteFile">写入文件</button>
+    <br><hr>
+    <button id="btnReadFile">读取文件</button>
+
+    <script type="text/javascript" src="./renderer.js"></script>
+  </body>
+</html>

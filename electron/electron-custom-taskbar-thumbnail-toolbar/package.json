@@ -1,0 +1,15 @@
+{
+  "name": "electron-custom-taskbar-thumbnail-toolbar",
+  "version": "1.0.0",
+  "description": "自定义任务栏：缩略图工具栏",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "GitHub",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^31.3.1"
+  }
+}

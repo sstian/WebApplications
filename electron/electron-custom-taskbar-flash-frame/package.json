@@ -1,0 +1,15 @@
+{
+  "name": "electron-custom-taskbar-flash-frame",
+  "version": "1.0.0",
+  "description": "自定义任务栏：闪烁框",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "GitHub",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^31.3.1"
+  }
+}

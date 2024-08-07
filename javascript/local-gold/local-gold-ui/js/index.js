@@ -16,10 +16,11 @@
   }
 
   // get data
-  const startTime = "2023-06-01";
+  const startTime = "2020-01-01";
   // const startTime = "2023-08-01";
   const endTime = getDateString(new Date());
-  const url = `https://127.0.0.1:9990/api/v1/market/price/fixed?startTime=${startTime}&endTime=${endTime}`;
+  // const url = `https://127.0.0.1:9990/api/v1/market/price/fixed?startTime=${startTime}&endTime=${endTime}`;
+  const url = `http://127.0.0.1:9990/api/v1/market/price/fixed?startTime=${startTime}&endTime=${endTime}`;
   let response = await window.fetch(url, { method: "get" });
   let goldList = await response.json();
   console.log("goldList", goldList);

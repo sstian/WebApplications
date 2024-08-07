@@ -1,0 +1,15 @@
+{
+  "name": "electron-notifications",
+  "version": "1.0.0",
+  "description": "通知",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "GitHub",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^31.3.1"
+  }
+}
