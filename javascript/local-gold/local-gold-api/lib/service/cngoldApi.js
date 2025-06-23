@@ -27,11 +27,14 @@ async function getPriceOneBrand(brandId, productId, startTime, endTime, currentP
     pageSize: ${pageSize}`
   );
 
-  return client.get("/", {
+  return client.get("", {
     params: {
-      brandId, productId,
-      startTime, endTime,
-      currentPage, pageSize,
+      brandId,
+      productId,
+      startTime,
+      endTime,
+      currentPage,
+      pageSize,
       // variable: "",
       // _: Date.now(),
     },
