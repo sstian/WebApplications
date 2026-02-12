@@ -15,7 +15,10 @@ yarn add core-js
 
 yarn add @vue/cli-service -D
 yarn add @vue/cli-plugin-babel -D
+```
 
+## run
+```cmd
 yarn serve:app
 // vue-cli-service serve
 ```
